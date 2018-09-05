@@ -1,0 +1,104 @@
+{% extends 'blogapp/base.html'%}
+
+{% block content %}
+	<!-- Hero section -->
+	{% load static %}
+	<section class="page-top-section set-bg" data-setbg="{% static 'blogapp/img/page-top-bg.jpg' %}">
+		<div class="container">
+			<h2>Recipe</h2>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Search section -->
+	<div class="search-form-section">
+		<div class="sf-warp">
+			<div class="container">
+				<form class="big-search-form">
+					<select>
+						<option>All Recipes Categories</option>
+						<option>Pizza</option>
+						<option>Salads</option>
+						<option>Desserts</option>
+						<option>Side Dishes</option>
+					</select>
+					<select>
+						<option>All Ingredients</option>
+						<option>Breakfast</option>
+						<option>Lunch</option>
+						<option>Dinner</option>
+					</select>
+					<input type="text" placeholder="Search Receipies">
+					<button class="bsf-btn">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Search section end -->
+
+	
+	<!-- Recipe big view -->
+	<div class="recipe-view-section">
+		<div class="rv-warp set-bg" data-setbg="{% static 'blogapp/img/recipes/single-big.jpg' %}"></div>
+	</div>
+
+	<!-- Recipe details section -->
+	<section class="recipe-details-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-5" style="margin: 0px auto;">
+					<div class="recipe-filter-warp">
+						<div class="filter-top">
+							<div class="filter-top-text">
+								<h2>Edit Blog</h2>
+							</div>
+						</div>
+						<!-- recipe filter form -->
+						<form method="post" action=".">
+						<div class="filter-form-warp">
+							<div class="filter-form-warp">
+							    <div class="check-warp">
+							        Title		: <input type="text" name="title" value="{{ blog.title}}">
+								</div>
+							    <div class="check-warp">
+									<label> Description : </label>
+									<textarea name="b_text">{{ blog.b_text}}"</textarea>
+								</div>
+									<input type="submit" name="update" value="Update">
+							</div>							
+						</div>
+						</form>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</section>
+	<!-- Recipe details section end -->
+
+
+	<!-- Comment section -->
+	<section class="comment-section spad pt-0">
+		<div class="container">
+			<h4>Leave a comment</h4>
+			<form class="comment-form">
+				<div class="row">
+					<div class="col-md-6">
+						<input type="text" placeholder="Name">
+					</div>
+					<div class="col-md-6">
+						<input type="text" placeholder="E-mail">
+					</div>
+					<div class="col-md-12">
+						<input type="text" placeholder="Subject">
+						<textarea placeholder="Message"></textarea>
+						<button class="site-btn">Send</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	<!-- Comment section -->
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+
+	<pre>
+		{% for b in blogs%}
+			<div style="background-color:lightblue">
+				<h3 style="color: Yellow">{{ b.title }}</h3>
+				<h3>--------------------</h3>
+				<label>{{ b.b_text }}</label>
+			</div>
+
+		{% endfor %}
+	</pre>

@@ -1,0 +1,95 @@
+{% extends 'blogapp/base.html'%}
+
+{% block content %}
+{% load static %}
+
+	<!-- Hero section -->
+	<!-- <section class="page-top-section set-bg" data-setbg="img/page-top-section-top-bg.jpg"> -->
+		<div class="container">
+			<h2>Blogs</h2>
+		</div>
+	</section>
+	<!-- Hero section end -->
+
+
+	<!-- Search section -->
+	<div class="search-form-section">
+		<div class="sf-warp">
+			<div class="container">
+				<form class="big-search-form">
+					<select>
+						<option>All Recipes Categories</option>
+						<option>Pizza</option>
+						<option>Salads</option>
+						<option>Desserts</option>
+						<option>Side Dishes</option>
+					</select>
+					<select>
+						<option>All Ingredients</option>
+						<option>Breakfast</option>
+						<option>Lunch</option>
+						<option>Dinner</option>
+					</select>
+					<input type="text" placeholder="Search Receipies">
+					<button class="bsf-btn">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- Search section end -->
+
+
+	<!-- Recipes section -->
+	<section class="recipes-page spad">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="section-title">
+						<h2>Latest recipes</h2>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="recipe-view">
+						<i class="fa fa-bars"></i>
+						<i class="fa fa-th active"></i>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row">
+
+				{% for blog in blogs%}
+				
+				<div class="col-lg-4 col-md-6">
+					<div class="recipe">
+
+						<a href="../recipe-single/?id={{b.id}}">  <img class="img-responsive rounded" src="{{blog.image.url}}"   />  </a>
+						<div class="recipe-info-warp">
+							<div class="recipe-info">
+								<a href="../recipe-single/?id={{b.id}}"><h3>{{blog.title}}</h3></a>
+								<div class="rating">
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star is-fade"></i>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+
+
+			<div class="site-pagination">
+				<span>01</span>
+				<a href="#">02</a>
+				<a href="#">03</a>
+			</div>
+		</div>
+	</section>
+	<!-- Recipes section end -->
+
+{% endblock %}

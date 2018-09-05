@@ -1,0 +1,23 @@
+{% extends 'blogapp/base.html'%}
+{% block content %}
+
+
+<div style="background-color: yellow;align-self: center; width: 300px; height: 400px; margin: 0 auto; padding: 30px">
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<form action="{% url 'blogapp:login' %}" method="POST">
+	{%csrf_token%}
+	{{ login_form.as_p }}
+	<input style="" type="submit" name="submit">
+	
+</form>
+
+<a href="../forget/">Forget Password</a>
+</div>
+{% endblock %}

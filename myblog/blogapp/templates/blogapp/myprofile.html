@@ -1,0 +1,11 @@
+<form action="{% url 'blogapp:myprofile' %}" method="POST">
+	{%csrf_token%}
+	<pre> 
+		Hello {{request.session.unm}}
+	First Name : <input type="text" name="fnm" value="{{request.session.fnm}}">
+
+	Last Name  : <input type="text" name="lnm" value="{{request.session.lnm}}">
+
+				 <input type="submit" name="Update" value="Update">
+				 	</pre>
+</form>

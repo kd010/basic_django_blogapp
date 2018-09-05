@@ -1,0 +1,18 @@
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<form method="Post" action=".">
+	{%csrf_token%}
+	<pre>
+		New Pass 	: <input type="text" name="n_pass">
+
+		Confirm		: <input type="text" name="c_pass">
+
+				   <input type="submit" name="submit" value="Submit">
+	</pre>
+</form>

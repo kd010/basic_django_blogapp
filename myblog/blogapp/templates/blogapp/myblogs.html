@@ -1,0 +1,11 @@
+<h3>Your Blogs...</h3>
+
+<form method="POST" action=".">
+	{%csrf_token%}
+	<pre>
+		{% for blog in myblogs %}
+			<input type="label" value={{blog}}>
+			<input type="button" name="edit_b" value="Edit">
+		{% endfor %}
+	</pre>
+</form>

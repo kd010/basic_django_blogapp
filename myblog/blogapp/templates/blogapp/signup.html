@@ -1,0 +1,37 @@
+{% extends 'blogapp/base.html'%}
+{% block content %}
+
+
+<div style="background-color: yellow;align-self: center; width: 300px; height: 400px; margin: 0 auto; text-align: center;">
+
+{% for error_field, error_message in signup_form.errors.items %}
+    {{ error_field|striptags }}: {{ error_message|striptags }}
+{% endfor %}
+
+<!-- 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+  <center> <h1> <strong> <pre class="text-success"><li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li></pre> </strong>  </h1> </center>
+ 
+
+    {% endfor %}
+</ul>
+{% endif %} -->
+
+
+<!-- {% if error_msg %}<p><strong>{{error_msg}}</strong></p>{% endif %} -->
+
+
+
+<form action="{% url 'blogapp:signup' %}" method="POST">
+	{%csrf_token%}
+
+	{{ signup_form.as_p }}
+
+	<input type="submit" name="submit" value="Save">
+	
+</form>
+
+</div>
+{% endblock %}

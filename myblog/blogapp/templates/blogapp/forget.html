@@ -1,0 +1,16 @@
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<form method="Post" action=".">
+	{%csrf_token%}
+	<pre>
+		Enter Email : <input type="text" name="email">
+
+					  <input type="submit" name="submit" value="Submit">
+	</pre>
+</form>

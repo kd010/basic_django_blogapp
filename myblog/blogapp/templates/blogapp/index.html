@@ -1,0 +1,77 @@
+{% extends 'blogapp/base.html'%}
+
+{% block content %}
+{% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<!-- ********************************************** -->
+<!-- Recipe details section -->
+<section class="recipe-details-section">
+<!-- 	<div class="container">
+		<div class="recipe-meta"> -->
+			<div class="row">
+				<div class="col-lg-5" style="height: 100%">
+					<div class="recipe-filter-warp">
+						<div class="filter-top">
+							<div class="filter-top-text">
+								<p>Welcome {{request.user.username}}</p>
+								<p>Your Posts : 000</p>
+								<p>Total Likes : 0000</p>
+							</div>
+						</div>
+						<!-- recipe filter form -->
+						<div class="filter-form-warp">
+							<h2>Options</h2>
+							<div class="w3-bar-block">
+								<a href="createblog" class="w3-bar-item w3-button">Create Blog</a>
+								<a href="myblogs" class="w3-bar-item w3-button">My Blogs</a>
+								<a href="#" class="w3-bar-item w3-button">My Profile</a>
+								<a href="resetpass" class="w3-bar-item w3-button">Reset Password</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+				<div style="width: 600px">
+					{% for blog in blogs%}
+					<div style="outline: 2px dashed red; margin: 10px; width: 500px">
+								
+								<div class="racipe-cata" style="">
+									<a href="../recipe-single/?id={{ blog.id }}">
+										<span>{{blog.title}}</span>
+									</a>
+								</div>
+							
+							<div  style="float: right;">
+								{% if request.user.id == blog.user.id or request.user.is_superuser is True %}
+								<a href="../edit_recipe/?id={{ blog.id }}">
+									<i class="material-icons">&#xe254;</i>
+								</a>
+								{% endif %}
+							</div>
+							<div class="recipe-date" style="color: lightgrey; background-color: purple">
+							[{{ blog.created }}] by {{blog.user.username}}</div>
+						<div class="col-lg-7">
+							<ul class="recipe-info-list">
+								<li>
+									<p style="color: black">{{ blog.b_text }}</p>
+								</li>
+								
+							</ul>
+							
+						</div>
+					</div>
+					{% endfor %}
+				</div>	
+<!-- 		</div>
+	</div> -->
+</section>
+	<!-- Recipe details section end -->
+
+
+{% endblock %}
